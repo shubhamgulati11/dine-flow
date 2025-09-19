@@ -150,7 +150,6 @@ docker-compose up --build
 * Add JWT-based authentication for secure API access
 * Move menu items to a separate `MenuItem` table
 * Add payment processing APIs
-* Add unit and integration tests
 
 ---
 
