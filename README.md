@@ -105,37 +105,6 @@ INSERT INTO restaurant_tables (id, table_code) VALUES (1, 'T1');
 
 ---
 
-## Docker Setup
-
-* **MySQL Service**
-
-```yaml
-mysql-db:
-  image: mysql:8
-  environment:
-    MYSQL_ROOT_PASSWORD: root
-    MYSQL_DATABASE: restaurant_app
-    MYSQL_USER: appuser
-    MYSQL_PASSWORD: apppass
-  ports:
-    - "3306:3306"
-```
-
-* **Backend Service**
-
-```yaml
-backend:
-  build: .
-  depends_on:
-    - mysql-db
-  environment:
-    SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/restaurant_app?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-    SPRING_DATASOURCE_USERNAME: appuser
-    SPRING_DATASOURCE_PASSWORD: apppass
-  ports:
-    - "8080:8080"
-```
-
 * **Run:**
 
 ```bash
